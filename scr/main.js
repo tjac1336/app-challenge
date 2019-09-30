@@ -1,12 +1,17 @@
 document.querySelector('#calculate').addEventListener('click', calculate);
 
 function calculate() {
-    const firstInput = parseFloat(document.querySelector('#firstInput').value);
-    const secondInput = parseFloat(document.querySelector('#secondInput').value);
+    const radius = parseFloat(document.querySelector('#radius').value);
 
+    let circum = 2 * Math.PI * radius  
+
+    if (isNaN(radius))
+    {
+        document.querySelector('#circumference').innerHTML = "Error. Input is not a number.";
+    }
+    else
+    {
+        document.querySelector('#circumference').innerHTML = circum.toFixed(4);
+    }
     
-
-    document.querySelector('#tipAmount').innerHTML = tipAmount.toFixed(2);
-    document.querySelector('#taxTotal').innerHTML = tax.toFixed(2);
-    document.querySelector('#grandTotal').innerHTML = (total + tipAmount + tax).toFixed(2);
 };
